@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import todo
+# 呼び出す際のファイル場所を指示する
+from .views import TodoList
 
 urlpatterns = [
-    path('a/', todo),
+    path('list/', TodoList.as_view()),
 ]

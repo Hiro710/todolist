@@ -1,9 +1,9 @@
 from django.shortcuts import render
-# HttpResponseを呼び出す
-from django.http import HttpResponse
+from django.views.generic import ListView
+# TodoModelが入っている場所を指示する(ファイルのパス)
+from .models import TodoModel
 
-# Create your views here.
-
-# urls.pyで定義したtodoをviews.pyに紐付け(定義)する
-def todo(request):
-  return HttpResponse('')
+class TodoList(ListView):
+    template_name = 'list.html'
+    # DBのどのモデルを使うのかを指定する
+    model = TodoModel

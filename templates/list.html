@@ -1,0 +1,10 @@
+<!-- 
+object_listはListViewを指定すると使うことができる
+DBに入っているデータがリストとして入っているオブジェクトになる
+-->
+{% for item in object_list %}
+<ul>
+  <li>{{ item.title }}</li>
+  <li>{{ item.memo }}</li>
+</ul>
+{% endfor %}
