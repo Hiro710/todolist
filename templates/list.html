@@ -17,9 +17,13 @@
     <!--Djangoを埋め込んでTodoの重要度によって色を変える-->
     <div class="alert alert-{{ item.priority }}" role="alert">
       <p>{{ item.title }}</p>
-      <a href="#" class="btn btn-info" tabindex="-1" role="button" aria-disabled="true">編集</a>
-      <a href="#" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">削除</a>
-      <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">詳細</a>
+      <!--
+        urls.pyで命名したurl名(name)を設定することができる
+        何番目のデータかをprimary_key(ID)を使って指定する必要がある(item.pk)
+      -->
+      <a href="{% url 'update' item.pk %}" class="btn btn-info" tabindex="-1" role="button" aria-disabled="true">編集</a>
+      <a href="{% url 'delete' item.pk %}" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">削除</a>
+      <a href="{% url 'detail' item.pk %}" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">詳細</a>
     </div>
   {% endfor %}
 </div>
