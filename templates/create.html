@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!--
+  action=""で指定しないと同じページに返る。
+  CSRF対策{% csrf_token %}を必ず記述する。
+-->
+<form action="" method="POST">{% csrf_token %}
+  <!--form.as_pはフォームをそれぞれpタグで囲って出力していくdjango特有のタグ-->
+  {{ form.as_p }}
+  <input type="submit" value="作成する">
+</form>
+{% endblock content %}
