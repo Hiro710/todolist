@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+<!--urlのID指定でデータの削除対象が既に決まっているため以下の記述のみでOK-->
+ {% block content %}
+ <form action='' method="POST">{% csrf_token %}
+    <input type="submit" value="削除します">
+ </form>
+ {% endblock content %}

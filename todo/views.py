@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, DeleteView
 # TodoModelが入っている場所を指示する(ファイルのパス)
 from .models import TodoModel
 # reverse_lazy('')が入っている場所を指示する
@@ -25,4 +25,11 @@ class TodoCreate(CreateView):
     # データの作成が完了した時のリダイレクト先を指定する(必須)
     # reverse_lazy('')はclassの中で指定する際に使用する
     # urls.pyでnameを使って指定したものをviewと関連付ける
+    success_url = reverse_lazy('list')
+
+class TodoDelete(DeleteView):
+    template_name = 'delete.html'
+    # どのモデルのデータを削除するのかを指定する
+    model = TodoModel
+    # 削除が完了したらどのページに飛ぶのかを必ず指定
     success_url = reverse_lazy('list')
